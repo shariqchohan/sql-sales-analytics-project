@@ -35,3 +35,27 @@ This project strengthens skills in joins, grouping, aggregation, and database de
 3. **sales**
 
 ### **ERD (Entity-Relationship Diagram)**  
+erDiagram
+    CUSTOMERS {
+        INT customer_id PK
+        VARCHAR customer_name
+        VARCHAR city
+        VARCHAR country
+    }
+    PRODUCTS {
+        INT product_id PK
+        VARCHAR product_name
+        VARCHAR category
+        DECIMAL price
+    }
+    SALES {
+        INT sale_id PK
+        INT customer_id FK
+        INT product_id FK
+        INT quantity
+        DATE sale_date
+    }
+
+    CUSTOMERS ||--o{ SALES : "places"
+    PRODUCTS  ||--o{ SALES : "included in"
+
